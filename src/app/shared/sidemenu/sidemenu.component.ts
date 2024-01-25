@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-sidemenu',
@@ -8,11 +9,18 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl: './sidemenu.component.html',
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
+  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidemenuComponent { }
+export class SidemenuComponent {
+
+  public menuItems = this.getMenuItems();
+
+  getMenuItems() {
+    return routes.map( route => route.children ?? [] )
+      .flat()
+      .filter( route => route && route.path )
+      .filter( route => !route.path?.includes(':') );    
+  }
+
+ }
