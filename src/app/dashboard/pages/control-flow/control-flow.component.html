@@ -2,7 +2,7 @@
     <div class="bg-white rounded shadow p-10">
         <button 
             type="button" 
-            class="p-2 bg-blue-500 rounded text-white"
+            class="p-2 mb-3 bg-blue-500 rounded text-white"
             (click)="toggleContent()"
         >Click me!</button>
 
@@ -11,5 +11,34 @@
         } @else {
             <h3 class="text-2xl font-bold mb-5">else en true</h3>
         }
+    </div>
+
+    <div class="bg-white rounded shadow p-10">
+        <button 
+            type="button" 
+            class="p-2 mr-3 bg-blue-500 rounded text-white"
+            (click)="grade.set('A')"
+        >A</button>
+        <button 
+            type="button" 
+            class="p-2 mr-3 bg-blue-500 rounded text-white"
+            (click)="grade.set('B')"
+        >B</button>
+        <button 
+            type="button" 
+            class="p-2 mb-3 bg-blue-500 rounded text-white"
+            (click)="grade.set('F')"
+        >F</button>
+       @switch (grade()) {
+            @case ('A') {
+                <p>{{ 'Arriba de 90' }}</p>
+            }
+            @case ('B') {
+                <p>{{ 'Arriba de 80' }}</p>
+            }
+            @default {
+                <p>{{ 'Reprobado' }}</p>
+            }
+       }
     </div>
 </section>
