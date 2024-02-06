@@ -9,7 +9,7 @@ import { TitleComponent } from '../../../shared/title/title.component';
     TitleComponent
   ],
   template: `
-    <app-title [title]="currentframework()"></app-title>
+    <app-title [title]="currentframework()"/>
     <pre>{{ frameworkAsSignal() | json }}</pre>
     <pre>{{ frameworkAsProperty | json }}</pre>
   `,
