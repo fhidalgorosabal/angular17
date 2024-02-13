@@ -17,5 +17,5 @@ import { RouterModule } from '@angular/router';
 export default class UsersComponent {
 
   public usersService = inject(UsersService);
-  
+    
  }
